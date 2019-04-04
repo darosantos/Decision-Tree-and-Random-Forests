@@ -19,8 +19,24 @@ parâmetro strategy são median ou most_frequent, em que o último substitui os
 valores omissos pelos valores mais frequentes. Isso é útil para imputar
 valores de recursos categóricos.
 
-. A classe Imputer pertence às chamadas classes de transformadores em
+A classe Imputer pertence às chamadas classes de transformadores em
 scikit-learn que são usadas para transformação de dados.
+
+Os dois métodos essenciais desses estimadores são fit e transform. O método 
+de ajuste (fit) é usado para aprender os parâmetros dos dados de treinamento e o método 
+de transformação (transform) usa esses parâmetros para transformar os dados.
+Qualquer array de dados a ser transformado precisa tem o mesmo número de recursos 
+que a matriz de dados usada para ajustar o modelo.
+
+Os classificadores que usamos no Capítulo 3, Um Tour de Classificadores de 
+Aprendizado de Máquina Usando o Scikit-Learn, pertencem aos chamados estimadores em 
+scikit-learn com uma API que é conceitualmente muito semelhante à classe de transformadores. 
+Os estimadores têm um método de previsão, mas também podem ter um método de transformação, 
+como veremos mais adiante. Como você deve se lembrar, também usamos o método de ajuste 
+para aprender os parâmetros de um modelo quando treinamos esses estimadores para classificação. 
+No entanto, em tarefas de aprendizado supervisionadas, fornecemos adicionalmente os rótulos 
+de classe para ajustar o modelo, que podem ser usados para fazer previsões sobre novas 
+amostras de dados por meio do método de previsão,
 """
 
 import pandas as pd
