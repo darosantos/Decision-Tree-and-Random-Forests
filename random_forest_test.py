@@ -2,7 +2,7 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
-import utility_random_forests
+import utility_random_forests as urf
 
 iris = datasets.load_iris()
 X = iris.data[:, [2, 3]]
@@ -56,10 +56,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 					“n_samples / (n_classes * np.bincount(y))”
 					
 """
-forest = RandomForestClassifier(n_estimators= get_n_estimators(6, 5), 
+forest = RandomForestClassifier(n_estimators= urf.get_n_estimators(6, 5), 
 								criterion='entropy',
 								max_features = 'auto',
-								max_depth = None,
+								max_depth = urf.get_max_depth(6),
 								min_samples_split = 2,
 								min_samples_leaf = 1,
 								min_weight_fraction_leaf = 0,
@@ -73,14 +73,38 @@ forest = RandomForestClassifier(n_estimators= get_n_estimators(6, 5),
 								warm_start = False,
 								class_weight = None
 								)
-forest.fit(X_train, y_train)
+forest = forest.fit(X_train, y_train)
 
 """
  @Attrib
 """
 
 # A coleção de sub-estimadores ajustados.
-forest.estimators_
+## forest.estimators_
+print(len(forest.estimators_))
 
+# As classes de saída
+## forest.classes_
+print('Classes = ' + str(forest.classes_))
 
+# O número de classes de saída
+## forest.n_classes_
+print('N Classes = ' + str(forest.n_classes_))
+
+# O número de recursos quando o fit é executado.
+## forest.n_features_
+print('N features = ' + str(forest.n_features_))
+
+# O número de saídas quando o fit é realizado.
+## forest.n_outputs_ 
+print('N outputs = ' + str(forest.n_outputs_ ))
+
+# Retornar uma matriz das importâncias do recurso (quanto mais alto, mais importante o recurso).
+## forest.feature_importances_
+print("Feature Importances")
+print(forest.feature_importances_)
+
+# Pontuação do conjunto de dados de treinamento obtido usando uma estimativa out-of-bag
+## forest.oob_score_
+print("Oob Score = " + str(forest.oob_score_))
 

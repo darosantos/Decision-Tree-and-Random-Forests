@@ -16,3 +16,9 @@ def get_n_estimators(n_features: int, n_sample: int) -> int:
 	arrangement_simple = int(n_factorial/n_p_factorial)
 	
 	return arrangement_simple
+
+def get_max_depth(n_features: int) -> int:
+    from math import sqrt
+    from math import log
+    max_depth = int(sqrt(n_features) + log(n_features)) + 1
+    return max_depth
