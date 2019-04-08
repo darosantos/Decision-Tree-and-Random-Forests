@@ -108,3 +108,23 @@ print(forest.feature_importances_)
 ## forest.oob_score_
 print("Oob Score = " + str(forest.oob_score_))
 
+# Função de decisão computada com estimativa fora do saco no conjunto de treinamento. 
+# Se n_estimators for pequeno, pode ser possível que um ponto de dados nunca tenha sido 
+# deixado de fora durante o bootstrap. Nesse caso, oob_decision_function_ pode conter NaN
+## forest.oob_decision_function_ 
+print('Oob Decision Function')
+print(forest.oob_decision_function_ )
+
+"""
+ @Method
+"""
+
+# Retorna a precisão média nos dados e rótulos de teste fornecidos.
+# Na classificação de vários rótulos, essa é a precisão do subconjunto, que é uma métrica rígida, pois 
+# é necessário para cada amostra que cada conjunto de rótulos seja corretamente previsto. 
+fscore = forest.score(X_train, y_train)
+print('Score')
+print(fscore)
+
+forest.estimators_ = forest.estimators_.pop()
+print(len(forest.estimators_))
