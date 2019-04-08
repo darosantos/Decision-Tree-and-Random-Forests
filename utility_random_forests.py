@@ -22,3 +22,13 @@ def get_max_depth(n_features: int) -> int:
     from math import log
     max_depth = int(sqrt(n_features) + log(n_features)) + 1
     return max_depth
+    
+
+def arrangement_features(features: list,  n_selected: int) -> list:
+    from itertools import product
+    permsList = list(product(features, repeat=n_selected))
+    return permsList
+
+print(arrangement_features(['danilo',  'rodrigues',  'santos'],  2))
+print(get_n_estimators(3, 2))
+print(len(arrangement_features(['danilo',  'rodrigues',  'santos'],  2)))

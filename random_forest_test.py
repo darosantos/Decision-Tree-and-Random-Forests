@@ -56,7 +56,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 					“n_samples / (n_classes * np.bincount(y))”
 					
 """
-forest = RandomForestClassifier(n_estimators= urf.get_n_estimators(6, 5), 
+    forest = RandomForestClassifier(n_estimators= urf.get_n_estimators(6, 5), 
 								criterion='entropy',
 								max_features = 'auto',
 								max_depth = urf.get_max_depth(6),
